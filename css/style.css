@@ -1,0 +1,300 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+
+/* Variables CSS */
+:root {
+    --primary-color: #0d6efd;
+    --secondary-color: #767d6c;
+    --dark-color: #212529;
+    --light-color: #f8f9fa;
+    --success-color: #198754;
+}
+
+/* Base Styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--dark-color);
+    padding-top: 56px; /* Pour la navbar fixe */
+    scroll-behavior: smooth;
+}
+
+.navbar-brand {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 1px;
+}
+
+.navbar-brand img {
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover img {
+    transform: scale(1.05);
+}
+
+/* Pour la version textuelle */
+.navbar-brand small {
+    display: block;
+    font-size: 0.6rem;
+    line-height: 1;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+.section-title {
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+.section-title:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+/* Hero Section */
+/* Hero Section */
+.hero-section {
+    height: 100vh;
+    min-height: 600px;
+    background: url('../assets/newback.jpeg') no-repeat center center;
+    background-size: cover;
+    position: relative;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.hero-content {
+    position: relative; /* Place le contenu au-dessus du pseudo-élément */
+    height: 100%;
+    z-index: 1; /* Assure que le contenu est au-dessus de l'overlay */
+}
+
+/* service international */
+
+/* Améliorations visuelles */
+.card {
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 0.5rem;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+.card-img-top {
+    object-fit: cover;
+    object-position: center;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-title {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Adaptation responsive */
+@media (max-width: 768px) {
+    .ratio-16x9 {
+        --bs-aspect-ratio: 75%; /* Ratio plus carré sur mobile */
+    }
+}
+ 
+
+/* Boutique */
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.price {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+/* Cart Modal */
+#cart-items-container {
+    min-height: 150px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.remove-item {
+    color: #dc3545;
+    cursor: pointer;
+}
+
+/* Contact Form */
+#contactForm .form-control {
+    padding: 10px 15px;
+    border-radius: 0;
+}
+
+#contactForm .form-control:focus {
+    box-shadow: none;
+    border-color: var(--primary-color);
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-section {
+        height: auto;
+        padding: 100px 0;
+    }
+    
+    .section-title:after {
+        width: 60px;
+    }
+}
+
+/* Style pour le carousel */
+#annonces {
+    background-color: #f8f9fa;
+}
+
+.carousel {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.carousel-img {
+    height: 500px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.carousel-caption {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.caption-content {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 0.5rem;
+    max-width: 600px;
+}
+
+.carousel-indicators [data-bs-target] {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin: 0 8px;
+    border: 2px solid white;
+    background: transparent;
+}
+
+.carousel-indicators .active {
+    background-color: white;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 8%;
+    opacity: 0.8;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .carousel-img {
+        height: 400px;
+    }
+    
+    .caption-content {
+        padding: 1.5rem !important;
+    }
+    
+    .carousel-caption h3 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel-img {
+        height: 300px;
+    }
+    
+    .carousel-caption {
+        padding: 1rem;
+    }
+    
+    .carousel-caption h3 {
+        font-size: 1.2rem;
+    }
+    
+    .carousel-caption .btn {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.9rem;
+    }
+}
