@@ -125,20 +125,77 @@ h1, h2, h3, h4, h5, h6 {
  
 
 /* Boutique */
+/* Styles pour la section boutique */
 .product-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: none;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border-radius: 0.5rem;
+    overflow: hidden;
 }
 
 .product-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
 }
 
-.price {
-    color: var(--primary-color);
-    font-size: 1.2rem;
+.product-image-container {
+    height: 250px; /* Hauteur fixe pour toutes les images */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa; /* Fond neutre si l'image ne couvre pas tout */
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ajuste l'image sans déformation */
+    object-position: center;
+    padding: 20px; /* Espace autour de l'image */
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.05);
+}
+
+.card-body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.card-text {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.btn-add {
+    margin-top: auto; /* Pousse le bouton vers le bas */
+    transition: all 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .product-image-container {
+        height: 200px;
+    }
+}
+
+@media (max-width: 576px) {
+    .product-image-container {
+        height: 180px;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
 }
 
 /* Cart Modal */

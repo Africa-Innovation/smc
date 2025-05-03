@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const whatsappBtn = document.getElementById('whatsapp-btn');
     const emptyCartMessage = document.getElementById('empty-cart-message');
     const cartItemsContainer = document.getElementById('cart-items-container');
-    const cartTotal = document.getElementById('cart-total');
+     
     
     // Mettre à jour le badge du panier
     function updateCartBadge() {
@@ -51,16 +51,12 @@ document.addEventListener('DOMContentLoaded', function() {
         emptyCartMessage.style.display = 'none';
         
         let itemsHTML = '';
-        let total = 0;
         
         cart.forEach((item, index) => {
-            total += item.price;
-            
             itemsHTML += `
                 <div class="cart-item">
                     <div>
                         <h6>${item.product}</h6>
-                        <p class="mb-0 text-muted">${item.price.toLocaleString()} FCFA</p>
                     </div>
                     <button class="btn btn-sm btn-outline-danger remove-item" data-index="${index}">
                         <i class="fas fa-trash"></i>
@@ -70,7 +66,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         cartItemsContainer.innerHTML = itemsHTML;
-        cartTotal.textContent = `${total.toLocaleString()} FCFA`;
         
         // Gérer la suppression d'articles
         document.querySelectorAll('.remove-item').forEach(button => {
@@ -100,15 +95,12 @@ document.addEventListener('DOMContentLoaded', function() {
         if (cart.length === 0) return;
         
         let message = "Bonjour SMC BUSINESS,\n\nJe souhaite commander les produits suivants :\n\n";
-        let total = 0;
         
         cart.forEach(item => {
-            message += `- ${item.product} : ${item.price.toLocaleString()} FCFA\n`;
-            total += item.price;
+            message += `- ${item.product}\n`;
         });
         
-        message += `\n*TOTAL : ${total.toLocaleString()} FCFA*\n\n`;
-        message += "Merci de me contacter pour finaliser la commande.\n\nCordialement,";
+        message += "\nMerci de me contacter pour finaliser la commande.\n\nCordialement,";
         
         const encodedMessage = encodeURIComponent(message);
         window.open(`https://wa.me/+971568403468?text=${encodedMessage}`);
