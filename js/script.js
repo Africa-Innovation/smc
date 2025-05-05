@@ -1,3 +1,24 @@
+// Loader Animation
+window.addEventListener('load', function() {
+    // Wait for everything to load
+    setTimeout(function() {
+        document.body.classList.add('loaded');
+        
+        // Remove loader from DOM after animation completes
+        setTimeout(function() {
+            const loader = document.querySelector('.loader-container');
+            if (loader) {
+                loader.remove();
+            }
+        }, 500); // Match this with the CSS transition time
+    }, 1000); // Minimum display time
+});
+
+// Fallback in case load event doesn't fire
+setTimeout(function() {
+    document.body.classList.add('loaded');
+}, 5000); // Maximum wait time
+
 document.addEventListener('DOMContentLoaded', function() {
     // Configuration des produits avec leurs options
     const productsConfig = {
@@ -473,4 +494,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialiser les animations
     window.addEventListener('load', animateProducts);
+    
 });
