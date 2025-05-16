@@ -227,30 +227,31 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Gestion du formulaire de contact
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function (e) {
-            e.preventDefault();
+    // Gestion du formulaire de contact
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
 
-            // Récupérer les valeurs du formulaire
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
+        // Récupérer les valeurs du formulaire
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
 
-            // Créer le corps du message
-            const body = `Nom: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0A${message}`;
+        // Créer le corps du message avec des sauts de ligne (%0D%0A pour les retours à la ligne)
+        const body = `Nom: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0A${message}`;
 
-            // Ouvrir le client mail par défaut
-            window.location.href = `mailto:smoumouni547@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+        // Ouvrir le client mail par défaut avec tous les détails
+        window.location.href = `mailto:smoumouni547@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-            // Réinitialiser le formulaire
-            this.reset();
+        // Réinitialiser le formulaire
+        this.reset();
 
-            // Message de confirmation (optionnel)
-            alert('Votre client mail va s\'ouvrir. Merci de nous envoyer votre message.');
-        });
-    }
+        // Message de confirmation (optionnel)
+        alert('Votre client mail va s\'ouvrir. Merci de nous envoyer votre message.');
+    });
+}
 
     // Bouton Retour en haut
     const backToTopButton = document.querySelector('.back-to-top');
